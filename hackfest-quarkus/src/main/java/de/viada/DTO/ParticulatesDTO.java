@@ -14,7 +14,7 @@ public class ParticulatesDTO {
     private int gt2_5um;
     private int gt5_0um;
     private int gt10um;
-    private String stationId;
+    private String status;
 
     public int getPm1_0() {
         return pm1_0;
@@ -112,17 +112,17 @@ public class ParticulatesDTO {
         this.gt10um = gt10um;
     }
 
-    public String getStationId() {
-        return stationId;
+    public String getStatus() {
+        return status;
     }
 
-    public void setStationId(String stationId) {
-        this.stationId = stationId;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
     public String toString() {
-        return "ParticulatesDTO{" +
+        return "Particulates{" +
                 "pm1_0=" + pm1_0 +
                 ", pm2_5=" + pm2_5 +
                 ", pm10=" + pm10 +
@@ -135,7 +135,7 @@ public class ParticulatesDTO {
                 ", gt2_5um=" + gt2_5um +
                 ", gt5_0um=" + gt5_0um +
                 ", gt10um=" + gt10um +
-                ", stationId='" + stationId + '\'' +
+                ", status='" + status + '\'' +
                 '}';
     }
 }
