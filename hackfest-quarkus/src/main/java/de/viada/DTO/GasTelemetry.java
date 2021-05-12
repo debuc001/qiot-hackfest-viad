@@ -17,6 +17,17 @@ public class GasTelemetry {
         stationID = _stationID;
     }
 
+    public String toJSON() {
+        return "{" +
+                "\"stationID\":" + stationID +
+                ",\"instant\": \"" + instant + "\"" +
+                ",\"adc\":" + gasDTO.getAdc() +
+                ",\"nh3\":" + gasDTO.getNh3() +
+                ",\"oxidising\":" + gasDTO.getOxidising() +
+                ",\"reducing\":" + gasDTO.getReducing() +
+                "}";
+    }
+
     public String getInstant() { return instant; }
 
     public void setInstant(String instant) { this.instant = instant; }
