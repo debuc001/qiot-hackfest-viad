@@ -2,6 +2,7 @@ package de.viada.Service;
 
 import de.viada.DTO.GasDTO;
 import de.viada.DTO.ParticulatesDTO;
+import de.viada.DTO.Serial;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 import javax.ws.rs.Consumes;
@@ -21,5 +22,14 @@ public interface SensorService {
     @Path("/particulates")
     @Consumes(MediaType.APPLICATION_JSON)
     ParticulatesDTO getParticulates();
+
+    /**
+     * Retreive Serial-Id from Sensor
+     * @return SerialRaw
+     */
+    @GET
+    @Path("/serial")
+    @Consumes(MediaType.APPLICATION_JSON)
+    Serial getSerial();
 
 }
