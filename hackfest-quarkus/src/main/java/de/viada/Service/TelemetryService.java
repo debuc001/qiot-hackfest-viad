@@ -18,10 +18,10 @@ public class TelemetryService {
 
     @Inject
     @Channel("pollution")
-    Emitter<String> pollutionEmitter;
+    Emitter<String> particulatesEmitter;
 
     /**
-     * Sends processed Gas Telemetry to the DataHub..
+     * Sends processed Gas Telemetry to the DataHub.
      * @param data String
      */
     public void sendGas(String data) {
@@ -29,10 +29,10 @@ public class TelemetryService {
     }
 
     /**
-     * Sends processed Pollution Telemetry to the DataHub.
+     * Sends processed Particulates Telemetry to the DataHub.
      * @param data String
      */
-    public void sendPollution(String data) {
-        pollutionEmitter.send(data);
+    public void sendParticulates(String data) {
+        particulatesEmitter.send(data);
     }
 }

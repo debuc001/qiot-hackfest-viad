@@ -114,7 +114,7 @@ public class MainService {
         try {
             GasDTO gasDTO = this.sensorService.getGas();
             GasTelemetry gasTelementry = new GasTelemetry(this.teamId, gasDTO);
-            // send telemetry as json
+            telemetryService.sendGas(gasTelementry.toJSON());
             System.out.println("Gas Telemetry sucessfully sent.");
         } catch (Exception ex){
             System.out.println("Gas Telemetry could not be send.");
@@ -122,7 +122,7 @@ public class MainService {
         try {
             ParticulatesDTO particulatesDTO = this.sensorService.getParticulates();
             ParticulatesTelemetry particulatesTelemetry = new ParticulatesTelemetry(this.teamId, particulatesDTO);
-            // send telemetry as json
+            telemetryService.sendParticulates(particulatesTelemetry.toJSON());
             System.out.println("Particulates Telemetry sucessfully sent.");
         } catch (Exception ex){
             System.out.println("Particulates Telemetry could not be send.");
