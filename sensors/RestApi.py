@@ -161,6 +161,7 @@ def get_serial_number():
       serial_number = f.readline()
       return serial_number.strip()
 
+"""Read the nh3/oxidising/reducing Data from the the MICS6814 sensor"""
 @app.route('/gas')
 @as_json
 def gas():
@@ -181,6 +182,7 @@ def serial():
    except Exception as e:
         print(e)
 
+"""Read the Particulates Data from the the PMS5003 sensor """
 @app.route('/particulates')
 @as_json
 def patriculates():
