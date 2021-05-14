@@ -11,6 +11,10 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import org.jboss.logging.Logger;
 
+/**
+ * Service to Register/Unregister at the DataHub and a Scheduler to manage the flow of gas/particulates Data.
+ */
+
 @ApplicationScoped
 public class MainService {
 

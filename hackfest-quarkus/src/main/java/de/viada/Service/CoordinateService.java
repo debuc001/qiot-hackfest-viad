@@ -11,6 +11,11 @@ import javax.json.JsonReader;
 import java.io.InputStream;
 import java.net.URL;
 
+/**
+ * Service to retrieve Coordinates.
+ */
+
+
 @ApplicationScoped
 public class CoordinateService {
 

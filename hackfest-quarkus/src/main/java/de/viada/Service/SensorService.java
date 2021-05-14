@@ -10,6 +10,10 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 
+
+/**
+ * Service to retrieve Data from Pi
+ */
 @RegisterRestClient(baseUri = "http://qiot-sensor-service:5000")
 public interface SensorService {
 
