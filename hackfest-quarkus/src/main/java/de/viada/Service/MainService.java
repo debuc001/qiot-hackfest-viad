@@ -5,6 +5,8 @@ import de.viada.DTO.*;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.ApplicationScoped;
@@ -85,32 +87,17 @@ public class MainService {
          */
         try {
             Serial serial = this.sensorService.getSerial();
-            this.teamId = this.dataHubClientService.register(serial.getStationID(), teamname, coordinates.getLongitude(), coordinates.getLatitude());
+            this.teamId = this.dataHubClientService
+                    .register(serial.getStationID(), teamname, coordinates.getLongitude(), coordinates.getLatitude(), "123456");
         } catch (Exception ex) {
             LOG.error("Could not register at the DataHub.");
+            ex.printStackTrace();
             throw new IllegalStateException("Could not register at the DataHub.");
-        }
-    }
-
-    /**
-     * Unregister at the DataHub before Services gets destroyed.
-     */
-    @PreDestroy
-    public void unregister() {
-        /**
-         * Trying to unregister at the DataHub.
-         */
-        try {
-            this.dataHubClientService.unregister(this.teamId);
-            LOG.info("Unregistered from DataHub.");
-        } catch (Exception ex) {
-            LOG.error("Could not Unregister from DataHub.");
         }
     }
 
     @Scheduled(every = "5s")
     public void mainMethod(){
-        System.out.println("TEST");
         try {
             GasDTO gasDTO = this.sensorService.getGas();
             GasTelemetry gasTelementry = new GasTelemetry(this.teamId, gasDTO);
