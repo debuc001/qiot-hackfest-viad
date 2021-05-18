@@ -17,6 +17,8 @@ public class ParticulatesDTO {
     private String status;
     private String stationID;
 
+    public ParticulatesDTO() {}
+
     public int getPm1_0() { return pm1_0; }
 
     public void setPm1_0(int pm1_0) { this.pm1_0 = pm1_0; }

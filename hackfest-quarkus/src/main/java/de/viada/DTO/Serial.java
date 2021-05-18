@@ -6,6 +6,10 @@ public class Serial {
 
     public Serial() {}
 
+    public Serial(String stationID) {
+        this.stationID = stationID.replace("\u0000", "");
+    }
+
     public String getStationID() {
         return stationID;
     }

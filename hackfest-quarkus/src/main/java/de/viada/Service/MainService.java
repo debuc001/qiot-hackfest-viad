@@ -85,11 +85,13 @@ public class MainService {
         /**
          * Try to retreive the hardware-serial and register at the DataHub.
          */
+        Serial serial = null;
         try {
-            Serial serial = this.sensorService.getSerial();
+            serial = this.sensorService.getSerial();
             this.teamId = this.dataHubClientService
                     .register(serial.getStationID(), teamname, coordinates.getLongitude(), coordinates.getLatitude(), "123456");
         } catch (Exception ex) {
+            LOG.error(serial.getStationID() + "==" +  teamname + "==" +  coordinates.getLongitude() + "==" +  coordinates.getLatitude() + "==" + "123456");
             LOG.error("Could not register at the DataHub.");
             ex.printStackTrace();
             throw new IllegalStateException("Could not register at the DataHub.");

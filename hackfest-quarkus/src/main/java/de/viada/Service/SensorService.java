@@ -29,11 +29,11 @@ public interface SensorService {
 
     /**
      * Retreive Serial-Id from Sensor
-     * @return SerialRaw
+     * @return Serial
      */
     @GET
     @Path("/serial")
-    @Consumes(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.TEXT_PLAIN)
     Serial getSerial();
 
 }
